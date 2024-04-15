@@ -65,9 +65,6 @@ Licensed under either of
 
 at your option
 
-The files in subdirectories of the [`examples/assets`](/examples/assets) directory are licensed solely under
-their respective licenses, available in the `LICENSE` file in their directories.
-
 ## Contribution
 
 Unless you explicitly state otherwise, any contribution intentionally submitted
