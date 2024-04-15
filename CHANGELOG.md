@@ -10,6 +10,14 @@ Subheadings to categorize changes are `added, changed, deprecated, removed, fixe
 
 ## Unreleased
 
+## 0.1.2
+
+- Equivalent to 0.1.0
+
+## 0.1.1
+
+- This version was yanked, as it was pushed erroneously.
+
 ## 0.1.0
 
 - Initialize release
