@@ -1,0 +1,67 @@
+name: Web Demo Update
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release-web:
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: install stable toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+
+      - name: install wasm-bindgen
+        uses: jetli/wasm-bindgen-action@v0.2.0
+        with:
+          version: 'latest'
+
+      - name: build (wasm)
+        run: cargo build --example simple --release --target wasm32-unknown-unknown
+
+      - name: package wasm
+        run: |
+          mkdir public
+          wasm-bindgen --target web --out-dir public target/wasm32-unknown-unknown/release/examples/simple.wasm --no-typescript
+          cat << EOF > public/index.html
+            <html>
+            <title>WebGPU Check Demo</title>
+            <meta content=no-cache http-equiv=Cache-control>
+            <meta content=-1 http-equiv=Expires>
+            <script>let wasmModule;</script>
+            <script type="module">
+              import initSync from "/webgpu_check/simple.js";
+              wasmModule = await initSync(`/webgpu_check/simple_bg.wasm`);
+            </script>
+            <link as=fetch crossorigin href=/webgpu_check/simple_bg.wasm rel=preload type=application/wasm>
+            <link crossorigin href=/webgpu_check/simple.js rel=modulepreload>
+            </head>
+            <body>
+              This application needs JavaScript and WebAssembly to run.
+            </body>
+            </html>
+          EOF
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './public'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
