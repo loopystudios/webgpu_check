@@ -4,7 +4,7 @@
 
 **A simple, minimal crate to probe WebGPU support prior to running your application.**
 
-[![Discord](https://img.shields.io/discord/913957940560531456.svg?label=VGX&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/zrjnQzdjCB)
+[![Discord](https://img.shields.io/discord/913957940560531456.svg?label=Loopy&logo=discord&logoColor=ffffff&color=ffffff&labelColor=000000)](https://discord.gg/zrjnQzdjCB)
 [![MIT/Apache 2.0](https://img.shields.io/badge/license-MIT%2FApache-blue.svg)](#license)
 [![Build status](https://github.com/loopystudios/webgpu_check/workflows/CI/badge.svg)](https://github.com/loopystudios/webgpu_check/actions)
 [![dependency status](https://deps.rs/repo/github/loopystudios/webgpu_check/status.svg)](https://deps.rs/repo/github/loopystudios/webgpu_check)
@@ -50,7 +50,7 @@ fn main() {
 
 ## Community
 
-All VGX projects and development happens in the [VGX Discord](https://discord.gg/zrjnQzdjCB). The discord is open to the public.
+All Loopy projects and development happens in the [Loopy Discord](https://discord.gg/zrjnQzdjCB). The discord is open to the public.
 
 Contributions are welcome by pull request. The [Rust code of conduct](https://www.rust-lang.org/policies/code-of-conduct) applies.
 
