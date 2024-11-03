@@ -10,6 +10,10 @@ Subheadings to categorize changes are `added, changed, deprecated, removed, fixe
 
 ## Unreleased
 
+## 0.1.3
+
+- Updates web-sys to ^0.3.70
+
 ## 0.1.2
 
 - Equivalent to 0.1.0

@@ -1,7 +1,7 @@
 [package]
 name = "webgpu_check"
 description = "A simple, minimal crate to probe WebGPU support."
-version = "0.1.2"
+version = "0.1.3"
 edition = "2021"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/loopystudios/webgpu_check"
@@ -10,11 +10,11 @@ repository = "https://github.com/loopystudios/webgpu_check"
 [dependencies]
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]
-web-sys = { version = "0.3", features = ['Window', 'Navigator', 'Gpu'] }
+web-sys = { version = "0.3.70", features = ['Window', 'Navigator', 'Gpu'] }
 
 [target.'cfg(target_arch = "wasm32")'.dev-dependencies]
-wasm-bindgen-test = "0.3.42"
-web-sys = { version = "0.3", features = [
+wasm-bindgen-test = "0.3.45"
+web-sys = { version = "0.3.70", features = [
     'Window',
     'Document',
     'HtmlElement',
@@ -24,4 +24,4 @@ web-sys = { version = "0.3", features = [
 
 
 [target.'cfg(not(target_arch = "wasm32"))'.dev-dependencies]
-notify-rust = "4.11.0"
+notify-rust = "4.11.3"
